@@ -156,7 +156,9 @@
 
 </html>
 <script>
-            let b1 = document.getElementById("b1");
-            alert ("Successfully submitted");
+            document.getElementById("b1").onclick = function() {
+    console.log("onclick");
+    alert("Successfully submitted");
+};
             
 </script>
