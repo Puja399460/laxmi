@@ -128,7 +128,29 @@
                     <label for="address" class="form-label text-white">Address</label>
                     <textarea class="form-control" id="address" name="address" rows="4" placeholder="Enter your address" required></textarea>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Gender</label>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" id="male">
+                        <label for="male" class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" id="female">
+                        <label for="female" class="form-check-label">FeMale</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" id="trans">
+                        <label for="trans" class="form-check-label">Transgender</label>
+                    </div>
+                    <br>
+                    <span id="sp4"></span>
+                </div>
+                <div class="d-grid">
                 <button type="submit" class="btn btn-light" id="submitBtn">Submit</button>
+                </div>
+                
+                
             </form>
         </div>
     </section>
@@ -152,36 +174,51 @@
                 alert("Successfully submitted!");
             });
         });
-        document.getElementById('myForm').addEventListener('submit', function(e) {
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const address = document.getElementById('address').value.trim();
-        
-        let valid = true;
-        let errorMessage = "";
+        function fun(){
+            let name=
+            document.getElementById("name").value
+            let email = 
+            document.getElementById("email").value
+            let address =
+            document.getElementById("address").value
+            let i4 = 
+            document.querySelector("input[name='gender']:checked")
+            let sp1 = 
+            document.getElementById("sp1")
+            let sp2 = 
+            document.getElementById("sp2")
+            let sp3 = 
+            document.getElementById("sp3")
+            let sp4 = 
+            document.getElementById("sp4")
 
-        // Simple custom validation (beyond "required")
-        if (name.length < 2) {
-            errorMessage += "Name must be at least 2 characters long.\n";
-            valid = false;
+            sp1.innerHTML=""
+             sp2.innerHTML=""
+              sp3.innerHTML=""
+               sp4.innerHTML=""
+               let chk = true;
+
+               if(name==""){
+                sp1.innerHTML = "*Please emter name...";
+                chk = false;
+               }
+                if(email==""){
+                sp2.innerHTML = "*Please emter email...";
+                chk = false;
+               }
+                if(address==""){
+                sp3.innerHTML = "*Please emter address...";
+                chk = false;
+               }
+                if(!i4==""){
+                sp4.innerHTML = "*Please select gender...";
+                chk = false;
+               }
+               return chk;
+
         }
 
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            errorMessage += "Please enter a valid email address.\n";
-            valid = false;
-        }
-
-        if (address.length < 10) {
-            errorMessage += "Address must be at least 10 characters long.\n";
-            valid = false;
-        }
-
-        if (!valid) {
-            e.preventDefault(); // Stop form submission
-            alert(errorMessage);
-        }
-    });
+       
     </script>
 
 </body>
